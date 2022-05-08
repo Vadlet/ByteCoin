@@ -8,10 +8,9 @@
 
 import Foundation
 
-struct BitcoinData: Codable {
-    let rate: Rate
+struct BitcoinData: Decodable {
+    let rate: Double
 }
 
-struct Rate: Codable {
-    let rate: Int
-}
+
+

@@ -33,9 +33,16 @@ struct CoinManager {
             }
             guard let data = data else { return }
             
-            let jsonString = String(data: data, encoding: .utf8)
-           print(jsonString)
-        
+//            let jsonString = String(data: data, encoding: .utf8)
+//           print(jsonString)
+            do {
+                let bitcoinData = try JSONDecoder().decode(BitcoinData.self, from: data)
+                print(bitcoinData.rate)
+            } catch {
+                print(error)
+            }
+            
+
         } .resume()
     }
 }
